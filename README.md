@@ -1,4 +1,9 @@
-# AMD
-This repo contains the project of the course Algorithms for Massive Data (2022)
-
+# AMD (Algorithms for Massive Data)
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bigliolimatteo/AMD/blob/main/market_basket_analysis_(Ukraine_Conflict).ipynb)
+
+
+This report describes an analysis performed on the Ukraine Conflict Twitter Dataset. The aim of our project is to leverage a distributed algorithm in order to highlight frequent sets of words over multiple tweets; in particular we will implement, with the aid of the Map Reduce programming model, the A Priori algorithm to perform a Market Basket Analysis.
+The computing engine we will use is Apache-Spark, more specifically its interface designed for compatibility with the Python programming language which is called PySpark. In order to achieve a distributed but concise pre-processing we will also leverage SparkNLP, an open-source text processing library which seamlessly integrate with both Python and Spark.
+We will start by providing a naive approach which strictly follows the algorithm presented dur- ing classes. In this first part we will be mostly interested in replicating literally all the steps of the algorithm, without worrying too much about the performance of it.
+We will then offer a generalized approach, coded in a single Python function, which will compute at once all the frequent itemsets of different sizes based on different input parameters. In this phase we will provide two different implementations of one of the most relevant steps of the computation, which is the generation of all the, not necessarily frequent, itemsets of a given basket: one of them will be based on a Map-Reduce-like approach and should perform better on large datasets analysed on a cluster of different computing nodes, while the other will be more sequential-like and should perform better in our case, in which we have a small dataset and a single executor.
+Finally we will analyze the different results we will get by analyzing datasets generated in differ- ent days with different parameters values. In this last phase we will actually find some correlation between our results and a few key events which occurred during the conflict.
